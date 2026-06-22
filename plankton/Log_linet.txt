@@ -1,0 +1,582 @@
+FPS (preprocess + inference): 167.16496202780746
+Name                             Type                     Forward_MACs  FPercent        Memory  MPercent       Params  PPercent    InShape      OutShape
+-------------------------------  ---------------------  --------------  ----------  ----------  ----------  ---------  ----------  -----------  ----------
+node_AveragePool_1726            AveragePool                     8,192  0.01%            8,192  0.06%               0  0.00%       1x128x5x5    1x128x4x4
+node_Sigmoid_1309                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_15                      Mul                            16,384  0.03%           65,536  0.50%               0  0.00%       1x16x32x32   1x16x32x32
+node_Mul_1854                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Sigmoid_473                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1338                    Mul                               128  0.00%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Sigmoid_359                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Sigmoid_1378                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1533                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Mul_585                     Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2279                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Add_2007                    Add                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_MaxPool_33                  MaxPool                        65,536  0.10%           65,536  0.50%               0  0.00%       1x16x33x33   1x16x32x32
+node_Add_834                     Add                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2318                   Conv                        1,480,704  2.31%          117,120  0.90%          23,136  0.95%       1x240x8x8    1x96x8x8
+node_Sigmoid_422                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2330                   Conv                           12,480  0.02%           13,248  0.10%           3,120  0.13%       1x64x2x2     1x48x2x2
+node_Sigmoid_1119                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_684                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Add_1921                    Add                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Add_2119                    Add                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_Mul_1392                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_14                  Sigmoid                       524,288  0.82%           65,536  0.50%               0  0.00%       1x16x32x32   1x16x32x32
+node_Conv_2315                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Sigmoid_2034                Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Mul_972                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2203                   Conv                        1,183,744  1.85%           34,880  0.27%           4,624  0.19%       1x32x32x32   1x16x16x16
+node_Add_1655                    Add                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Mul_827                     Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1826                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Conv_2264                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Conv_2301                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_Conv_2276                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Conv_2249                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_274                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_1023                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2263                   Conv                          115,200  0.18%           30,848  0.24%           7,200  0.29%       1x224x4x4    1x32x4x4
+node_Sigmoid_1707                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_1460                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Mul_1595                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2208                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Sigmoid_584                 Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Mul_565                     Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Conv_2325                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Conv_2295                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_Conv_307                    Conv                            1,056  0.00%            4,352  0.03%           1,056  0.04%       1x32x1x1     1x32x1x1
+node_Conv_2096                   Conv                          590,336  0.92%          592,384  4.55%         147,584  6.04%       1x128x2x2    1x128x2x2
+node_Add_1535                    Add                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Sigmoid_59                  Sigmoid                       262,144  0.41%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_Mul_774                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2277                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2335                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Mul_47                      Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Add_1393                    Add                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Resize_1463                 Resize                              0  0.00%           16,400  0.13%               4  0.00%       1x64x4x4     1x64x8x8
+node_Conv_2257                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Add_1801                    Add                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Sigmoid_1640                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_1081                Sigmoid                         1,024  0.00%              128  0.00%               0  0.00%       1x32x1x1     1x32x1x1
+node_Conv_2323                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Mul_1344                    Mul                               128  0.00%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Conv_2201                   Conv                          163,840  0.26%           66,176  0.51%             160  0.01%       1x1x64x64    1x16x32x32
+node_Mul_2009                    Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Conv_2293                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Sigmoid_760                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1171                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_1742                    Mul                               192  0.00%              768  0.01%               0  0.00%       1x48x2x2     1x48x2x2
+node_ReduceMean_2124             ReduceMean                        512  0.00%              528  0.00%               2  0.00%       1x128x2x2    1x128x1x1
+node_Mul_2065                    Mul                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_Mul_173                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2332                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Mul_1561                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2319                   Conv                          221,696  0.35%           57,472  0.44%          13,856  0.57%       1x48x8x8     1x32x4x4
+node_Add_1562                    Add                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2251                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Sigmoid_1493                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Mul_1234                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_273                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_571                     Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Mul_1209                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Add_1855                    Add                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Conv_2271                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_537                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1406                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Split_2136                  Split                               0  0.00%           24,576  0.19%               0  0.00%       1x96x8x8     1x48x8x8
+node_Conv_2307                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Sigmoid_248                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_812                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_659                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_InstanceNormalization_2082  InstanceNormalization           3,584  0.01%            2,304  0.02%              64  0.00%       1x32x16      1x32x16
+node_Conv_2306                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Conv_2258                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_198                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2234                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Mul_60                      Mul                             8,192  0.01%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_Sigmoid_870                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_ReduceMean_1341             ReduceMean                        128  0.00%              128  0.00%               0  0.00%       1x32x2x2     1x32x1x1
+node_Mul_622                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2229                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Mul_1983                    Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Sigmoid_1653                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_570                 Sigmoid                         1,024  0.00%              128  0.00%               0  0.00%       1x32x1x1     1x32x1x1
+node_Sigmoid_984                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2211                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Conv_2286                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_Mul_685                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_301                 Sigmoid                       262,144  0.41%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_Conv_2294                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Split_2140                  Split                               0  0.00%           24,576  0.19%               0  0.00%       1x96x8x8     1x48x8x8
+node_Mul_2069                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Mul_1695                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2242                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Conv_2241                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Mul_1609                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Mul_309                     Mul                             8,192  0.01%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_Sigmoid_1922                Sigmoid                       196,608  0.31%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2233                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Sigmoid_83                  Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_698                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2334                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Conv_2044                   Conv                          590,336  0.92%          592,384  4.55%         147,584  6.04%       1x128x2x2    1x128x2x2
+node_Mul_2035                    Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Mul_2095                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Conv_2302                   Conv                           28,800  0.04%           29,312  0.23%           7,200  0.29%       1x224x2x2    1x32x2x2
+node_Conv_2212                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Conv_2261                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_385                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2280                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2287                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Mul_1654                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2269                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_322                 Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Sigmoid_908                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1247                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_1892                    Mul                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2274                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2270                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Conv_2310                   Conv                          164,864  0.26%           45,312  0.35%          10,304  0.42%       1x160x4x4    1x64x4x4
+node_Conv_2256                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_498                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2273                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Mul_249                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Add_1420                    Add                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2309                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Mul_1548                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Sigmoid_1608                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2322                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Add_1828                    Add                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Mul_1945                    Mul                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2228                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Conv_2275                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2292                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_MaxPool_1596                MaxPool                         3,072  0.00%            3,072  0.02%               0  0.00%       1x48x8x8     1x48x4x4
+node_Conv_2248                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Sigmoid_2094                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Sigmoid_397                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_550                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_1080                   Conv                            1,056  0.00%            4,352  0.03%           1,056  0.04%       1x32x1x1     1x32x1x1
+node_Mul_1869                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Conv_2312                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Conv_2240                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Conv_2262                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_1047                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_798                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1060                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2331                   Conv                          590,336  0.92%          592,384  4.55%         147,584  6.04%       1x128x2x2    1x128x2x2
+node_Mul_160                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_1897                   Conv                        5,314,560  8.29%          356,736  2.74%          83,040  3.40%       1x96x8x8     1x96x8x8
+node_Conv_569                    Conv                            1,056  0.00%            4,352  0.03%           1,056  0.04%       1x32x1x1     1x32x1x1
+node_Conv_2235                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Sigmoid_811                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_826                 Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1594                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2238                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Conv_2214                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Mul_512                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_InstanceNormalization_1910  InstanceNormalization          43,008  0.07%           24,768  0.19%              48  0.00%       1x24x256     1x24x256
+node_Conv_2313                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Mul_2121                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Conv_2327                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Conv_2278                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_159                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Add_1508                    Add                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2230                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Conv_2225                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Conv_2336                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Conv_2297                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Conv_831                    Conv                            1,056  0.00%            4,352  0.03%           1,056  0.04%       1x32x1x1     1x32x1x1
+node_Conv_2282                   Conv                          115,200  0.18%           30,848  0.24%           7,200  0.29%       1x224x4x4    1x32x4x4
+node_Conv_2239                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Mul_302                     Mul                             8,192  0.01%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_InstanceNormalization_1882  InstanceNormalization          43,008  0.07%           24,960  0.19%              96  0.00%       1x48x128     1x48x128
+node_Conv_2217                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Sigmoid_346                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Sigmoid_971                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_97                      Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2244                   Conv                            5,120  0.01%            3,328  0.03%             320  0.01%       1x32x8x8     1x32x4x4
+node_Mul_122                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2268                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_858                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2236                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Mul_799                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2207                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Sigmoid_1360                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2328                   Conv                          657,408  1.02%          172,544  1.33%          41,088  1.68%       1x320x4x4    1x128x4x4
+node_Mul_1771                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Mul_723                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2226                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Sigmoid_1271                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_29                  Sigmoid                       524,288  0.82%           65,536  0.50%               0  0.00%       1x16x32x32   1x16x32x32
+node_Conv_2266                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_1722                Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Split_2144                  Split                               0  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x64x4x4
+node_Mul_1494                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Mul_1323                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_1432                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_197                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_460                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1379                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_1984                   Conv                        2,361,344  3.68%          598,528  4.60%         147,584  6.04%       1x128x4x4    1x128x4x4
+node_Conv_2223                   Conv                        1,843,200  2.87%           61,568  0.47%           7,200  0.29%       1x224x16x16  1x32x16x16
+node_Conv_2231                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Conv_2329                   Conv                          110,784  0.17%          111,552  0.86%          27,696  1.13%       1x64x4x4     1x48x2x2
+node_Mul_1668                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_435                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_236                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_135                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2222                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Conv_2227                   Conv                           17,408  0.03%            5,184  0.04%             272  0.01%       1x16x8x8     1x16x8x8
+node_Mul_1708                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2288                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Mul_1076                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_InstanceNormalization_1936  InstanceNormalization          43,008  0.07%           24,584  0.19%               2  0.00%       1x1x6144     1x1x6144
+node_Mul_323                     Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Conv_2281                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Mul_1919                    Mul                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Mul_1010                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_909                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1075                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1786                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_AveragePool_1579            AveragePool                    24,576  0.04%           24,576  0.19%               0  0.00%       1x96x9x9     1x96x8x8
+node_Conv_2209                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Conv_2296                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Add_1083                    Add                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_ReduceMean_306              ReduceMean                      8,192  0.01%              128  0.00%               0  0.00%       1x32x16x16   1x32x1x1
+node_Conv_2247                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_1022                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1575                Sigmoid                       196,608  0.31%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Sigmoid_1895                Sigmoid                       196,608  0.31%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Sigmoid_1853                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Add_1709                    Add                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2304                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Conv_2290                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Conv_2218                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Add_1447                    Add                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_2068                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Conv_2265                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2289                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_Sigmoid_1755                Sigmoid                         6,144  0.01%              768  0.01%               0  0.00%       1x48x2x2     1x48x2x2
+node_Conv_2267                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Mul_871                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_735                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_1924                   Conv                        5,314,560  8.29%          356,736  2.74%          83,040  3.40%       1x96x8x8     1x96x8x8
+node_Add_2067                    Add                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_Sigmoid_2008                Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Conv_2210                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Sigmoid_121                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_697                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Add_1981                    Add                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_Mul_423                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Sigmoid_1009                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_609                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_947                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1419                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2259                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2202                   Conv                        1,064,960  1.66%           69,696  0.54%           1,040  0.04%       1x16x32x32   1x16x32x32
+node_Mul_347                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2215                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Conv_2219                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Sigmoid_536                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1576                    Mul                             6,144  0.01%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Mul_1896                    Mul                             6,144  0.01%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Sigmoid_172                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_ReduceMean_1952             ReduceMean                      6,144  0.01%              384  0.00%               0  0.00%       1x96x8x8     1x96x1x1
+node_Mul_1120                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_2091                    Mul                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_Sigmoid_646                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2317                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Mul_499                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2303                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Mul_474                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Sigmoid_1418                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_286                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_2031                    Mul                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_Sigmoid_2120                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Sigmoid_384                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2206                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Mul_660                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2246                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Conv_2320                   Conv                           25,088  0.04%            8,320  0.06%           1,568  0.06%       1x48x4x4     1x32x4x4
+node_Conv_2333                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Conv_2204                   Conv                          139,264  0.22%           34,944  0.27%             544  0.02%       1x16x16x16   1x32x16x16
+node_Conv_2254                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Mul_1285                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Conv_2324                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Mul_2005                    Mul                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_Sigmoid_933                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1048                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1547                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Sigmoid_210                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Mul_1814                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Mul_1841                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Sigmoid_1246                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_211                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2337                   Conv                          147,712  0.23%          148,736  1.14%          36,928  1.51%       1x64x2x2     1x64x2x2
+node_Mul_84                      Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Conv_2338                   Conv                          164,352  0.26%          166,400  1.28%          41,088  1.68%       1x320x2x2    1x128x2x2
+node_Sigmoid_773                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2316                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Conv_2237                   Conv                           33,792  0.05%            6,208  0.05%             528  0.02%       1x32x8x8     1x16x8x8
+node_Mul_1800                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Mul_1133                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_1461                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Add_310                     Add                             8,192  0.01%           32,768  0.25%               0  0.00%       1x32x16x16   1x32x16x16
+node_Sigmoid_564                 Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Mul_736                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Resize_1347                 Resize                              0  0.00%            2,048  0.02%               0  0.00%       1x32x2x2     1x32x4x4
+node_Mul_1949                    Mul                             6,144  0.01%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2010                   Conv                        2,361,344  3.68%          598,528  4.60%         147,584  6.04%       1x128x4x4    1x128x4x4
+node_Conv_2245                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_ReduceMean_2038             ReduceMean                      2,048  0.00%              512  0.00%               0  0.00%       1x128x4x4    1x128x1x1
+node_Mul_1310                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_MaxPool_1743                MaxPool                         1,024  0.00%            1,024  0.01%               0  0.00%       1x64x4x4     1x64x2x2
+node_Mul_2117                    Mul                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_Sigmoid_1799                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Conv_2205                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Conv_2224                   Conv                           20,480  0.03%            9,472  0.07%             320  0.01%       1x32x16x16   1x32x8x8
+node_Conv_2250                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_46                  Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_1337                Sigmoid                         4,096  0.01%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Conv_1342                   Conv                            1,056  0.00%            4,352  0.03%           1,056  0.04%       1x32x1x1     1x32x1x1
+node_Sigmoid_1095                Sigmoid                         4,096  0.01%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Add_2033                    Add                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_Split_2152                  Split                               0  0.00%            2,048  0.02%               0  0.00%       1x128x2x2    1x64x2x2
+node_InstanceNormalization_2108  InstanceNormalization           3,584  0.01%            2,048  0.02%               0  0.00%       1x1x512      1x1x512
+node_Sigmoid_857                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1982                Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Mul_1433                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Mul_896                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2308                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Add_1894                    Add                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2291                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Conv_2252                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Mul_1534                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2216                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Sigmoid_1132                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Conv_2220                   Conv                          135,168  0.21%           18,496  0.14%             528  0.02%       1x32x16x16   1x16x16x16
+node_Sigmoid_308                 Sigmoid                         1,024  0.00%              128  0.00%               0  0.00%       1x32x1x1     1x32x1x1
+node_Mul_1061                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_398                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1641                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Mul_833                     Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1948                Sigmoid                       196,608  0.31%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Add_2093                    Add                               512  0.00%            2,560  0.02%             128  0.01%       1x128x2x2    1x128x2x2
+node_InstanceNormalization_2022  InstanceNormalization          14,336  0.02%            8,192  0.06%               0  0.00%       1x1x2048     1x1x2048
+node_Sigmoid_134                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_832                 Sigmoid                         1,024  0.00%              128  0.00%               0  0.00%       1x32x1x1     1x32x1x1
+node_Conv_2284                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Sigmoid_946                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1322                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_1813                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Mul_1787                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_InstanceNormalization_2056  InstanceNormalization           3,584  0.01%            2,560  0.02%             128  0.01%       1x64x8       1x64x8
+node_Mul_1979                    Mul                             2,048  0.00%            8,704  0.07%             128  0.01%       1x128x4x4    1x128x4x4
+node_Conv_2260                   Conv                            8,448  0.01%            3,136  0.02%             528  0.02%       1x32x4x4     1x16x4x4
+node_Sigmoid_1868                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_ReduceMean_568              ReduceMean                      2,048  0.00%              128  0.00%               0  0.00%       1x32x8x8     1x32x1x1
+node_Conv_2305                   Conv                          147,968  0.23%           39,040  0.30%           9,248  0.38%       1x32x4x4     1x32x4x4
+node_Mul_1923                    Mul                             6,144  0.01%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Mul_1477                    Mul                             6,144  0.01%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Sigmoid_1770                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x128x2x2    1x128x2x2
+node_Mul_461                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Sigmoid_1623                Sigmoid                        65,536  0.10%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Mul_30                      Mul                            16,384  0.03%           65,536  0.50%               0  0.00%       1x16x32x32   1x16x32x32
+node_ReduceMean_1079             ReduceMean                        512  0.00%              128  0.00%               0  0.00%       1x32x4x4     1x32x1x1
+node_Conv_2298                   Conv                            1,088  0.00%            1,344  0.01%             272  0.01%       1x16x2x2     1x16x2x2
+node_Split_2132                  Split                               0  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x32x4x4
+node_Mul_1446                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1667                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Mul_1756                    Mul                               192  0.00%              768  0.01%               0  0.00%       1x48x2x2     1x48x2x2
+node_Sigmoid_1741                Sigmoid                         6,144  0.01%              768  0.01%               0  0.00%       1x48x2x2     1x48x2x2
+node_Mul_1681                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_1840                Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Sigmoid_1694                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_1445                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1195                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Conv_2253                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Conv_1870                   Conv                        5,314,560  8.29%          356,736  2.74%          83,040  3.40%       1x96x8x8     1x96x8x8
+node_Conv_2314                   Conv                        1,330,176  2.07%           95,424  0.73%          20,784  0.85%       1x48x8x8     1x48x8x8
+node_Mul_360                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1624                    Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Mul_647                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1507                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2300                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Mul_1723                    Mul                             2,048  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x128x4x4
+node_Sigmoid_895                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Conv_2070                   Conv                          590,336  0.92%          592,384  4.55%         147,584  6.04%       1x128x2x2    1x128x2x2
+node_ReduceMean_830              ReduceMean                        512  0.00%              128  0.00%               0  0.00%       1x32x4x4     1x32x1x1
+node_Conv_2283                   Conv                            1,280  0.00%            1,792  0.01%             320  0.01%       1x32x4x4     1x32x2x2
+node_Mul_287                     Mul                             4,096  0.01%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_1284                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Add_1345                    Add                               128  0.00%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Sigmoid_1560                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Conv_2232                   Conv                           10,240  0.02%            4,736  0.04%             160  0.01%       1x16x8x8     1x16x8x8
+node_Conv_2326                   Conv                          590,848  0.92%          151,808  1.17%          36,928  1.51%       1x64x4x4     1x64x4x4
+node_Mul_1158                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Mul_985                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1082                    Mul                               512  0.00%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Conv_2285                   Conv                              640  0.00%              896  0.01%             160  0.01%       1x16x2x2     1x16x2x2
+node_Sigmoid_1520                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Sigmoid_1170                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_549                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Add_572                     Add                             2,048  0.00%            8,192  0.06%               0  0.00%       1x32x8x8     1x32x8x8
+node_Conv_2321                   Conv                        2,361,344  3.68%          598,528  4.60%         147,584  6.04%       1x128x4x4    1x128x4x4
+node_Add_1682                    Add                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_2243                   Conv                          460,800  0.72%           36,992  0.28%           7,200  0.29%       1x224x8x8    1x32x8x8
+node_Mul_1521                    Mul                             3,072  0.00%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Mul_1272                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_1343                Sigmoid                         1,024  0.00%              128  0.00%               0  0.00%       1x32x1x1     1x32x1x1
+node_Mul_1827                    Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x64x2x2     1x64x2x2
+node_Conv_2299                   Conv                            2,112  0.00%            2,368  0.02%             528  0.02%       1x32x2x2     1x16x2x2
+node_Conv_2272                   Conv                            4,352  0.01%            2,112  0.02%             272  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_1506                Sigmoid                        98,304  0.15%           12,288  0.09%               0  0.00%       1x48x8x8     1x48x8x8
+node_Mul_436                     Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Mul_1196                    Mul                                64  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Add_1947                    Add                             6,144  0.01%           24,960  0.19%              96  0.00%       1x96x8x8     1x96x8x8
+node_Conv_2221                   Conv                           40,960  0.06%           17,024  0.13%             160  0.01%       1x16x16x16   1x16x16x16
+node_Sigmoid_722                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_934                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_235                 Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_1476                Sigmoid                       196,608  0.31%           24,576  0.19%               0  0.00%       1x96x8x8     1x96x8x8
+node_Mul_1361                    Mul                             1,024  0.00%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Sigmoid_511                 Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x16x8x8     1x16x8x8
+node_Conv_2213                   Conv                           69,632  0.11%           17,472  0.13%             272  0.01%       1x16x16x16   1x16x16x16
+node_Mul_761                     Mul                               256  0.00%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1208                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_621                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Mul_1096                    Mul                               128  0.00%              512  0.00%               0  0.00%       1x32x2x2     1x32x2x2
+node_Conv_2311                   Conv                        5,314,560  8.29%          356,736  2.74%          83,040  3.40%       1x96x8x8     1x96x8x8
+node_Conv_2255                   Conv                            2,560  0.00%            1,664  0.01%             160  0.01%       1x16x4x4     1x16x4x4
+node_Sigmoid_608                 Sigmoid                         8,192  0.01%            1,024  0.01%               0  0.00%       1x16x4x4     1x16x4x4
+node_Sigmoid_1157                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Sigmoid_96                  Sigmoid                       131,072  0.20%           16,384  0.13%               0  0.00%       1x16x16x16   1x16x16x16
+node_Sigmoid_1233                Sigmoid                         2,048  0.00%              256  0.00%               0  0.00%       1x16x2x2     1x16x2x2
+node_Split_2148                  Split                               0  0.00%            8,192  0.06%               0  0.00%       1x128x4x4    1x64x4x4
+node_Sigmoid_1680                Sigmoid                        32,768  0.05%            4,096  0.03%               0  0.00%       1x64x4x4     1x64x4x4
+node_Conv_1958                   Conv                        2,361,344  3.68%          598,528  4.60%         147,584  6.04%       1x128x4x4    1x128x4x4
+node_InstanceNormalization_1970  InstanceNormalization          14,336  0.02%            8,192  0.06%               0  0.00%       1x64x32      1x64x32
+node_InstanceNormalization_1996  InstanceNormalization          14,336  0.02%            8,192  0.06%               0  0.00%       1x32x64      1x32x64
+node_Gemm_2131                   Gemm                           28,593  0.04%          114,696  0.88%          28,593  1.17%       1x352        1x81
+node_Sigmoid_1405                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+node_Sigmoid_1391                Sigmoid                        16,384  0.03%            2,048  0.02%               0  0.00%       1x32x4x4     1x32x4x4
+Total                            _                          64,140,113  100%        13,013,104  100%        2,443,401  100%        _            _
+
+HASIL PER KELAS
+------------------------------------------------------------------------------------------
+Amphidinium_sp                      Benar=1   Salah=0   Akurasi=100.00%
+Asterionellopsis                    Benar=0   Salah=1   Akurasi=  0.00%
+Cerataulina                         Benar=1   Salah=0   Akurasi=100.00%
+Ceratium                            Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros                         Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros_didymus                 Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_didymus_flagellate      Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros_flagellate              Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros_other                   Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_pennate                 Benar=0   Salah=1   Akurasi=  0.00%
+Chrysochromulina                    Benar=1   Salah=0   Akurasi=100.00%
+Ciliate_mix                         Benar=1   Salah=0   Akurasi=100.00%
+Corethron                           Benar=1   Salah=0   Akurasi=100.00%
+Coscinodiscus                       Benar=1   Salah=0   Akurasi=100.00%
+Cylindrotheca                       Benar=1   Salah=0   Akurasi=100.00%
+DactFragCerataul                    Benar=0   Salah=1   Akurasi=  0.00%
+Dactyliosolen                       Benar=1   Salah=0   Akurasi=100.00%
+Delphineis                          Benar=1   Salah=0   Akurasi=100.00%
+Dictyocha                           Benar=1   Salah=0   Akurasi=100.00%
+Dinobryon                           Benar=1   Salah=0   Akurasi=100.00%
+Dinophysis                          Benar=1   Salah=0   Akurasi=100.00%
+Ditylum                             Benar=0   Salah=1   Akurasi=  0.00%
+Ditylum_parasite                    Benar=0   Salah=1   Akurasi=  0.00%
+Emiliania_huxleyi                   Benar=1   Salah=0   Akurasi=100.00%
+Ephemera                            Benar=1   Salah=0   Akurasi=100.00%
+Eucampia                            Benar=1   Salah=0   Akurasi=100.00%
+Euglena                             Benar=0   Salah=1   Akurasi=  0.00%
+G_delicatula_detritus               Benar=1   Salah=0   Akurasi=100.00%
+G_delicatula_external_parasite      Benar=0   Salah=1   Akurasi=  0.00%
+G_delicatula_parasite               Benar=0   Salah=1   Akurasi=  0.00%
+Gonyaulax                           Benar=1   Salah=0   Akurasi=100.00%
+Guinardia_delicatula                Benar=0   Salah=1   Akurasi=  0.00%
+Guinardia_flaccida                  Benar=1   Salah=0   Akurasi=100.00%
+Guinardia_striata                   Benar=1   Salah=0   Akurasi=100.00%
+Gyrodinium                          Benar=1   Salah=0   Akurasi=100.00%
+Heterocapsa_triquetra               Benar=1   Salah=0   Akurasi=100.00%
+Katodinium_or_Torodinium            Benar=1   Salah=0   Akurasi=100.00%
+Laboea_strobila                     Benar=1   Salah=0   Akurasi=100.00%
+Lauderia                            Benar=1   Salah=0   Akurasi=100.00%
+Leegaardiella_ovalis                Benar=0   Salah=1   Akurasi=  0.00%
+Leptocylindrus                      Benar=0   Salah=1   Akurasi=  0.00%
+Leptocylindrus_mediterraneus        Benar=0   Salah=1   Akurasi=  0.00%
+Licmophora                          Benar=1   Salah=0   Akurasi=100.00%
+Mesodinium_sp                       Benar=1   Salah=0   Akurasi=100.00%
+Paralia                             Benar=1   Salah=0   Akurasi=100.00%
+Phaeocystis                         Benar=1   Salah=0   Akurasi=100.00%
+Pleurosigma                         Benar=1   Salah=0   Akurasi=100.00%
+Prorocentrum                        Benar=1   Salah=0   Akurasi=100.00%
+Proterythropsis_sp                  Benar=0   Salah=1   Akurasi=  0.00%
+Pseudochattonella_farcimen          Benar=1   Salah=0   Akurasi=100.00%
+Pseudonitzschia                     Benar=0   Salah=1   Akurasi=  0.00%
+Pyramimonas_longicauda              Benar=1   Salah=0   Akurasi=100.00%
+Rhizosolenia                        Benar=0   Salah=1   Akurasi=  0.00%
+Skeletonema                         Benar=1   Salah=0   Akurasi=100.00%
+Strobilidium_morphotype1            Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_inclinatum              Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_morphotype1             Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_morphotype2             Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_oculatum                Benar=0   Salah=1   Akurasi=  0.00%
+Strombidium_wulffi                  Benar=1   Salah=0   Akurasi=100.00%
+Thalassionema                       Benar=1   Salah=0   Akurasi=100.00%
+Thalassiosira                       Benar=1   Salah=0   Akurasi=100.00%
+Thalassiosira_dirty                 Benar=0   Salah=1   Akurasi=  0.00%
+Tintinnid                           Benar=0   Salah=1   Akurasi=  0.00%
+Tontonia_gracillima                 Benar=1   Salah=0   Akurasi=100.00%
+amoeba                              Benar=1   Salah=0   Akurasi=100.00%
+bad                                 Benar=1   Salah=0   Akurasi=100.00%
+bead                                Benar=1   Salah=0   Akurasi=100.00%
+clusterflagellate                   Benar=1   Salah=0   Akurasi=100.00%
+detritus                            Benar=1   Salah=0   Akurasi=100.00%
+diatom_flagellate                   Benar=1   Salah=0   Akurasi=100.00%
+dino30                              Benar=1   Salah=0   Akurasi=100.00%
+dino_large1                         Benar=1   Salah=0   Akurasi=100.00%
+flagellate_sp3                      Benar=1   Salah=0   Akurasi=100.00%
+kiteflagellates                     Benar=1   Salah=0   Akurasi=100.00%
+mix_elongated                       Benar=1   Salah=0   Akurasi=100.00%
+other_interaction                   Benar=0   Salah=1   Akurasi=  0.00%
+pennate                             Benar=0   Salah=1   Akurasi=  0.00%
+pennate_morphotype1                 Benar=1   Salah=0   Akurasi=100.00%
+pennates_on_diatoms                 Benar=0   Salah=1   Akurasi=  0.00%
+spore                               Benar=1   Salah=0   Akurasi=100.00%
+
+AKURASI KESELURUHAN
+------------------------------------------------------------------------------------------
+Benar=56 Salah=25 Akurasi=69.14% (56/81)
+
+SALAH KLASIFIKASI
+------------------------------------------------------------------------------------------
+000_Guinardia_delicatula.png | GT=Guinardia_delicatula | PRED=G_delicatula_external_parasite
+006_Chaetoceros_didymus_flagellate.png | GT=Chaetoceros_didymus_flagellate | PRED=Chaetoceros_other
+008_Chaetoceros.png | GT=Chaetoceros | PRED=detritus
+016_Ditylum_parasite.png | GT=Ditylum_parasite | PRED=Corethron
+017_G_delicatula_external_parasite.png | GT=G_delicatula_external_parasite | PRED=G_delicatula_parasite
+018_Ceratium.png | GT=Ceratium | PRED=Guinardia_flaccida
+019_G_delicatula_parasite.png | GT=G_delicatula_parasite | PRED=Chaetoceros_didymus
+020_Tintinnid.png | GT=Tintinnid | PRED=Delphineis
+022_Pseudonitzschia.png | GT=Pseudonitzschia | PRED=Leptocylindrus
+023_Chaetoceros_flagellate.png | GT=Chaetoceros_flagellate | PRED=kiteflagellates
+025_Proterythropsis_sp.png | GT=Proterythropsis_sp | PRED=other_interaction
+030_Leptocylindrus.png | GT=Leptocylindrus | PRED=mix_elongated
+031_Leegaardiella_ovalis.png | GT=Leegaardiella_ovalis | PRED=Dictyocha
+035_pennate.png | GT=pennate | PRED=mix_elongated
+041_Ditylum.png | GT=Ditylum | PRED=Ditylum_parasite
+050_Asterionellopsis.png | GT=Asterionellopsis | PRED=Euglena
+052_Leptocylindrus_mediterraneus.png | GT=Leptocylindrus_mediterraneus | PRED=Corethron
+056_Rhizosolenia.png | GT=Rhizosolenia | PRED=Chaetoceros_other
+058_Euglena.png | GT=Euglena | PRED=Corethron
+060_pennates_on_diatoms.png | GT=pennates_on_diatoms | PRED=Chaetoceros_other
+063_Thalassiosira_dirty.png | GT=Thalassiosira_dirty | PRED=clusterflagellate
+064_Chaetoceros_pennate.png | GT=Chaetoceros_pennate | PRED=G_delicatula_parasite
+068_DactFragCerataul.png | GT=DactFragCerataul | PRED=Guinardia_striata
+070_Strombidium_oculatum.png | GT=Strombidium_oculatum | PRED=Dinophysis
+079_other_interaction.png | GT=other_interaction | PRED=Thalassiosira

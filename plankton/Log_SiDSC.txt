@@ -1,0 +1,161 @@
+Profiling file: onnxruntime_profile__2026-06-02_07-25-33_811.json
+FPS (preprocess + inference): 206.33985753270423
+Name                 Type          Forward_MACs  FPercent        Memory  MPercent      Params  PPercent    InShape      OutShape
+-------------------  ----------  --------------  ----------  ----------  ----------  --------  ----------  -----------  -----------
+node_Relu_38         Relu               262,144  0.20%        1,048,576  5.21%              0  0.00%       1x64x64x64   1x64x64x64
+node_Conv_257        Conv               524,288  0.41%        1,049,088  5.21%            128  0.02%       1x1x64x64    1x64x64x64
+node_Conv_264        Conv            16,908,288  13.19%         590,336  2.93%         16,512  2.20%       1x128x32x32  1x128x32x32
+node_MaxPool_124     MaxPool            131,072  0.10%          131,072  0.65%              0  0.00%       1x128x32x32  1x128x16x16
+node_Relu_26         Relu               262,144  0.20%        1,048,576  5.21%              0  0.00%       1x64x64x64   1x64x64x64
+node_Conv_265        Conv             8,519,680  6.65%          557,568  2.77%          8,320  1.11%       1x64x32x32   1x128x32x32
+node_Conv_267        Conv             8,454,144  6.60%          394,240  1.96%         33,024  4.40%       1x128x16x16  1x256x16x16
+node_Conv_271        Conv               163,840  0.13%           75,776  0.38%          2,560  0.34%       1x256x8x8    1x256x8x8
+node_Conv_275        Conv             8,421,376  6.57%          657,408  3.26%        131,584  17.52%      1x256x8x8    1x512x8x8
+node_Relu_221        Relu                32,768  0.03%          131,072  0.65%              0  0.00%       1x512x8x8    1x512x8x8
+node_MaxPool_185     MaxPool             65,536  0.05%           65,536  0.33%              0  0.00%       1x256x16x16  1x256x8x8
+node_Relu_148        Relu                65,536  0.05%          262,144  1.30%              0  0.00%       1x256x16x16  1x256x16x16
+node_Relu_99         Relu               131,072  0.10%          524,288  2.60%              0  0.00%       1x128x32x32  1x128x32x32
+node_ReduceMean_249  ReduceMean          32,768  0.03%            2,064  0.01%              2  0.00%       1x512x8x8    1x512x1x1
+node_Gemm_255        Gemm                41,553  0.03%          166,536  0.83%         41,553  5.53%       1x512        1x81
+node_Relu_87         Relu               131,072  0.10%          524,288  2.60%              0  0.00%       1x128x32x32  1x128x32x32
+node_Conv_263        Conv             1,310,720  1.02%          529,408  2.63%          1,280  0.17%       1x128x32x32  1x128x32x32
+node_Conv_273        Conv               327,680  0.26%          151,552  0.75%          5,120  0.68%       1x512x8x8    1x512x8x8
+node_Add_244         Add                 32,768  0.03%          131,072  0.65%              0  0.00%       1x512x8x8    1x512x8x8
+node_Conv_268        Conv               655,360  0.51%          272,384  1.35%          2,560  0.34%       1x256x16x16  1x256x16x16
+node_Relu_245        Relu                32,768  0.03%          131,072  0.65%              0  0.00%       1x512x8x8    1x512x8x8
+node_Add_122         Add                131,072  0.10%          524,288  2.60%              0  0.00%       1x128x32x32  1x128x32x32
+node_Conv_269        Conv            16,842,752  13.14%         525,312  2.61%         65,792  8.76%       1x256x16x16  1x256x16x16
+node_Relu_14         Relu                 4,096  0.00%           16,384  0.08%              0  0.00%       1x1x64x64    1x1x64x64
+node_Conv_270        Conv             8,454,144  6.60%          394,240  1.96%         33,024  4.40%       1x128x16x16  1x256x16x16
+node_Relu_136        Relu                32,768  0.03%          131,072  0.65%              0  0.00%       1x128x16x16  1x128x16x16
+node_Relu_184        Relu                65,536  0.05%          262,144  1.30%              0  0.00%       1x256x16x16  1x256x16x16
+node_Conv_258        Conv             2,621,440  2.05%        1,051,136  5.22%            640  0.09%       1x64x64x64   1x64x64x64
+node_Conv_261        Conv               655,360  0.51%          264,704  1.31%            640  0.09%       1x64x32x32   1x64x32x32
+node_Relu_123        Relu               131,072  0.10%          524,288  2.60%              0  0.00%       1x128x32x32  1x128x32x32
+node_Conv_272        Conv             8,421,376  6.57%          657,408  3.26%        131,584  17.52%      1x256x8x8    1x512x8x8
+node_Relu_197        Relu                16,384  0.01%           65,536  0.33%              0  0.00%       1x256x8x8    1x256x8x8
+node_Relu_62         Relu               262,144  0.20%        1,048,576  5.21%              0  0.00%       1x64x64x64   1x64x64x64
+node_Relu_160        Relu                65,536  0.05%          262,144  1.30%              0  0.00%       1x256x16x16  1x256x16x16
+node_Conv_274        Conv            16,809,984  13.12%       1,181,696  5.87%        262,656  34.98%      1x512x8x8    1x512x8x8
+node_Conv_260        Conv               524,288  0.41%        1,049,088  5.21%            128  0.02%       1x1x64x64    1x64x64x64
+node_Conv_266        Conv               327,680  0.26%          136,192  0.68%          1,280  0.17%       1x128x16x16  1x128x16x16
+node_Conv_262        Conv             8,519,680  6.65%          557,568  2.77%          8,320  1.11%       1x64x32x32   1x128x32x32
+node_Conv_259        Conv            17,039,360  13.30%       1,065,216  5.29%          4,160  0.55%       1x64x64x64   1x64x64x64
+node_Add_61          Add                262,144  0.20%        1,048,576  5.21%              0  0.00%       1x64x64x64   1x64x64x64
+node_Relu_75         Relu                65,536  0.05%          262,144  1.30%              0  0.00%       1x64x32x32   1x64x32x32
+node_Add_183         Add                 65,536  0.05%          262,144  1.30%              0  0.00%       1x256x16x16  1x256x16x16
+node_Relu_209        Relu                32,768  0.03%          131,072  0.65%              0  0.00%       1x512x8x8    1x512x8x8
+node_MaxPool_63      MaxPool            262,144  0.20%          262,144  1.30%              0  0.00%       1x64x64x64   1x64x32x32
+node_Conv_256        Conv                40,960  0.03%           16,424  0.08%             10  0.00%       1x1x64x64    1x1x64x64
+Total                _              128,160,337  100%        20,143,552  100%         750,877  100%        _            _
+
+HASIL PER KELAS
+------------------------------------------------------------------------------------------
+Amphidinium_sp                      Benar=1   Salah=0   Akurasi=100.00%
+Asterionellopsis                    Benar=1   Salah=0   Akurasi=100.00%
+Cerataulina                         Benar=1   Salah=0   Akurasi=100.00%
+Ceratium                            Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros                         Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_didymus                 Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_didymus_flagellate      Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_flagellate              Benar=0   Salah=1   Akurasi=  0.00%
+Chaetoceros_other                   Benar=1   Salah=0   Akurasi=100.00%
+Chaetoceros_pennate                 Benar=0   Salah=1   Akurasi=  0.00%
+Chrysochromulina                    Benar=1   Salah=0   Akurasi=100.00%
+Ciliate_mix                         Benar=1   Salah=0   Akurasi=100.00%
+Corethron                           Benar=1   Salah=0   Akurasi=100.00%
+Coscinodiscus                       Benar=1   Salah=0   Akurasi=100.00%
+Cylindrotheca                       Benar=1   Salah=0   Akurasi=100.00%
+DactFragCerataul                    Benar=0   Salah=1   Akurasi=  0.00%
+Dactyliosolen                       Benar=1   Salah=0   Akurasi=100.00%
+Delphineis                          Benar=1   Salah=0   Akurasi=100.00%
+Dictyocha                           Benar=1   Salah=0   Akurasi=100.00%
+Dinobryon                           Benar=1   Salah=0   Akurasi=100.00%
+Dinophysis                          Benar=1   Salah=0   Akurasi=100.00%
+Ditylum                             Benar=1   Salah=0   Akurasi=100.00%
+Ditylum_parasite                    Benar=0   Salah=1   Akurasi=  0.00%
+Emiliania_huxleyi                   Benar=1   Salah=0   Akurasi=100.00%
+Ephemera                            Benar=1   Salah=0   Akurasi=100.00%
+Eucampia                            Benar=1   Salah=0   Akurasi=100.00%
+Euglena                             Benar=0   Salah=1   Akurasi=  0.00%
+G_delicatula_detritus               Benar=1   Salah=0   Akurasi=100.00%
+G_delicatula_external_parasite      Benar=0   Salah=1   Akurasi=  0.00%
+G_delicatula_parasite               Benar=1   Salah=0   Akurasi=100.00%
+Gonyaulax                           Benar=1   Salah=0   Akurasi=100.00%
+Guinardia_delicatula                Benar=0   Salah=1   Akurasi=  0.00%
+Guinardia_flaccida                  Benar=1   Salah=0   Akurasi=100.00%
+Guinardia_striata                   Benar=1   Salah=0   Akurasi=100.00%
+Gyrodinium                          Benar=1   Salah=0   Akurasi=100.00%
+Heterocapsa_triquetra               Benar=1   Salah=0   Akurasi=100.00%
+Katodinium_or_Torodinium            Benar=1   Salah=0   Akurasi=100.00%
+Laboea_strobila                     Benar=1   Salah=0   Akurasi=100.00%
+Lauderia                            Benar=0   Salah=1   Akurasi=  0.00%
+Leegaardiella_ovalis                Benar=0   Salah=1   Akurasi=  0.00%
+Leptocylindrus                      Benar=0   Salah=1   Akurasi=  0.00%
+Leptocylindrus_mediterraneus        Benar=1   Salah=0   Akurasi=100.00%
+Licmophora                          Benar=1   Salah=0   Akurasi=100.00%
+Mesodinium_sp                       Benar=1   Salah=0   Akurasi=100.00%
+Paralia                             Benar=1   Salah=0   Akurasi=100.00%
+Phaeocystis                         Benar=1   Salah=0   Akurasi=100.00%
+Pleurosigma                         Benar=1   Salah=0   Akurasi=100.00%
+Prorocentrum                        Benar=1   Salah=0   Akurasi=100.00%
+Proterythropsis_sp                  Benar=0   Salah=1   Akurasi=  0.00%
+Pseudochattonella_farcimen          Benar=1   Salah=0   Akurasi=100.00%
+Pseudonitzschia                     Benar=1   Salah=0   Akurasi=100.00%
+Pyramimonas_longicauda              Benar=1   Salah=0   Akurasi=100.00%
+Rhizosolenia                        Benar=0   Salah=1   Akurasi=  0.00%
+Skeletonema                         Benar=1   Salah=0   Akurasi=100.00%
+Strobilidium_morphotype1            Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_inclinatum              Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_morphotype1             Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_morphotype2             Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_oculatum                Benar=1   Salah=0   Akurasi=100.00%
+Strombidium_wulffi                  Benar=0   Salah=1   Akurasi=  0.00%
+Thalassionema                       Benar=1   Salah=0   Akurasi=100.00%
+Thalassiosira                       Benar=0   Salah=1   Akurasi=  0.00%
+Thalassiosira_dirty                 Benar=1   Salah=0   Akurasi=100.00%
+Tintinnid                           Benar=1   Salah=0   Akurasi=100.00%
+Tontonia_gracillima                 Benar=1   Salah=0   Akurasi=100.00%
+amoeba                              Benar=1   Salah=0   Akurasi=100.00%
+bad                                 Benar=1   Salah=0   Akurasi=100.00%
+bead                                Benar=1   Salah=0   Akurasi=100.00%
+clusterflagellate                   Benar=1   Salah=0   Akurasi=100.00%
+detritus                            Benar=0   Salah=1   Akurasi=  0.00%
+diatom_flagellate                   Benar=1   Salah=0   Akurasi=100.00%
+dino30                              Benar=1   Salah=0   Akurasi=100.00%
+dino_large1                         Benar=1   Salah=0   Akurasi=100.00%
+flagellate_sp3                      Benar=1   Salah=0   Akurasi=100.00%
+kiteflagellates                     Benar=1   Salah=0   Akurasi=100.00%
+mix_elongated                       Benar=0   Salah=1   Akurasi=  0.00%
+other_interaction                   Benar=0   Salah=1   Akurasi=  0.00%
+pennate                             Benar=0   Salah=1   Akurasi=  0.00%
+pennate_morphotype1                 Benar=1   Salah=0   Akurasi=100.00%
+pennates_on_diatoms                 Benar=0   Salah=1   Akurasi=  0.00%
+spore                               Benar=1   Salah=0   Akurasi=100.00%
+
+AKURASI KESELURUHAN
+------------------------------------------------------------------------------------------
+Benar=61 Salah=20 Akurasi=75.31% (61/81)
+
+SALAH KLASIFIKASI
+------------------------------------------------------------------------------------------
+000_Guinardia_delicatula.png | GT=Guinardia_delicatula | PRED=G_delicatula_external_parasite
+001_mix_elongated.png | GT=mix_elongated | PRED=Leptocylindrus
+010_Thalassiosira.png | GT=Thalassiosira | PRED=dino30
+016_Ditylum_parasite.png | GT=Ditylum_parasite | PRED=other_interaction
+017_G_delicatula_external_parasite.png | GT=G_delicatula_external_parasite | PRED=other_interaction
+018_Ceratium.png | GT=Ceratium | PRED=Chaetoceros_other
+023_Chaetoceros_flagellate.png | GT=Chaetoceros_flagellate | PRED=Chaetoceros
+025_Proterythropsis_sp.png | GT=Proterythropsis_sp | PRED=Delphineis
+030_Leptocylindrus.png | GT=Leptocylindrus | PRED=mix_elongated
+031_Leegaardiella_ovalis.png | GT=Leegaardiella_ovalis | PRED=Dictyocha
+035_pennate.png | GT=pennate | PRED=mix_elongated
+056_Rhizosolenia.png | GT=Rhizosolenia | PRED=Chaetoceros_other
+058_Euglena.png | GT=Euglena | PRED=Thalassiosira
+060_pennates_on_diatoms.png | GT=pennates_on_diatoms | PRED=Chaetoceros_pennate
+064_Chaetoceros_pennate.png | GT=Chaetoceros_pennate | PRED=Chaetoceros_other
+067_Lauderia.png | GT=Lauderia | PRED=Gyrodinium
+068_DactFragCerataul.png | GT=DactFragCerataul | PRED=mix_elongated
+072_detritus.png | GT=detritus | PRED=Phaeocystis
+073_Strombidium_wulffi.png | GT=Strombidium_wulffi | PRED=Strombidium_oculatum
+079_other_interaction.png | GT=other_interaction | PRED=Thalassiosira
