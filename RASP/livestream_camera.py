@@ -22,7 +22,11 @@ import time
 import subprocess
 import argparse
 from datetime import datetime
+from collections import defaultdict
 from ultralytics import YOLO
+
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 # =====================================================
 # CONFIG
@@ -40,7 +44,27 @@ COLOR_CENTER = (0, 0, 255)
 COLOR_INFO_BG = (40, 40, 40)
 COLOR_INFO_TEXT = (255, 255, 255)
 
+# Firebase
+FIREBASE_CRED_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                   "..", "dt-rasppi-firebase-adminsdk-fbsvc-2c475bf795.json")
+FIREBASE_COLLECTION = "vehicle-counts"
+UPLOAD_INTERVAL = 1.0  # seconds
+
 os.makedirs(SAVE_DIR, exist_ok=True)
+
+
+def init_firebase():
+    """Initialize Firebase. Safe to call multiple times — only inits once."""
+    try:
+        firebase_admin.get_app()
+    except ValueError:
+        if not os.path.exists(FIREBASE_CRED_PATH):
+            print(f"[firebase] WARNING: Credential not found at {FIREBASE_CRED_PATH}")
+            return None
+        cred = credentials.Certificate(FIREBASE_CRED_PATH)
+        firebase_admin.initialize_app(cred)
+        print("[firebase] Initialized.")
+    return firestore.client()
 
 
 # =====================================================
@@ -143,6 +167,21 @@ def save_screenshot(frame, detections, cam_label: str):
     return path
 
 
+def upload_counts(db, cam_label: str, counts: dict):
+    """Upload per-category vehicle counts to Firestore."""
+    if db is None:
+        return
+    try:
+        db.collection(FIREBASE_COLLECTION).add({
+            "camera": cam_label,
+            "counts": counts,
+            "total": sum(counts.values()),
+            "timestamp": firestore.SERVER_TIMESTAMP,
+        })
+    except Exception as e:
+        print(f"[{cam_label}] Firebase upload error: {e}")
+
+
 # =====================================================
 # SINGLE-CAMERA LOOP (runs in its own process)
 # =====================================================
@@ -174,6 +213,11 @@ def run_single_camera(camera_index: int):
     show_center = True
     last_result = None
 
+    # Firebase
+    db = init_firebase()
+    category_counts = defaultdict(int)
+    last_upload_time = time.time()
+
     cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
     cv2.resizeWindow(window_name, 960, 540)
 
@@ -196,6 +240,18 @@ def run_single_camera(camera_index: int):
             )
             last_result = (frame.copy(), results)
             frame, detections = draw_detections(frame, results, show_center)
+
+            # Accumulate per-category counts
+            for d in detections:
+                category_counts[d["label"]] += 1
+
+            # Upload to Firebase every UPLOAD_INTERVAL seconds
+            now = time.time()
+            if now - last_upload_time >= UPLOAD_INTERVAL:
+                if category_counts:
+                    upload_counts(db, cam_label, dict(category_counts))
+                category_counts.clear()
+                last_upload_time = now
 
             tick = cv2.getTickCount()
             elapsed = (tick - prev_tick) / cv2.getTickFrequency()
