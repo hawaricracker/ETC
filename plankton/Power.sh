@@ -9,8 +9,8 @@ while true; do
     TOTAL=0
     ROW=()
     for RAIL in "${RAILS[@]}"; do
-        C=$(echo "$RAW" | grep "${RAIL}_A" | grep -oP '(?<=current\(\d+\)=)[0-9.]+')
-        V=$(echo "$RAW" | grep "${RAIL}_V" | grep -oP '(?<=volt\(\d+\)=)[0-9.]+')
+        C=$(echo "$RAW" | grep "${RAIL}_A" | grep -oP 'current\(\d+\)=\K[0-9.]+')
+        V=$(echo "$RAW" | grep "${RAIL}_V" | grep -oP 'volt\(\d+\)=\K[0-9.]+')
         P=$(awk -v v="${V:-0}" -v i="${C:-0}" 'BEGIN{printf "%.6f", v*i}')
         ROW+=("$P")
         TOTAL=$(awk -v t="$TOTAL" -v p="$P" 'BEGIN{printf "%.6f", t+p}')
