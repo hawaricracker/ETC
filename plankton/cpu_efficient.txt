@@ -1,0 +1,5 @@
+FPS (preprocess + inference): 156.74
+Total time: 63.80 s
+CPU samples: 634
+Average CPU usage (overall): 99.94%
+Average CPU usage (per core): [99.95 99.95 99.95 99.91]
