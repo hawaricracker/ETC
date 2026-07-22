@@ -16,5 +16,5 @@ while true; do
         TOTAL=$(awk -v t="$TOTAL" -v p="$P" 'BEGIN{printf "%.6f", t+p}')
     done
     echo "$TS,$TOTAL,$(IFS=,; echo "${ROW[*]}")" >> "$OUTFILE"
-    sleep 0.05
+    sleep 0.1
 done
