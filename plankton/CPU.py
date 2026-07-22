@@ -66,3 +66,5 @@ print(f"Total time: {end - start:.2f} s")
 print(f"CPU samples: {len(cpu_samples)}")
 print(f"Average CPU usage (overall): {avg_overall:.2f}%")
 print(f"Average CPU usage (per core): {np.round(avg_per_core, 2)}")
+
+#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
