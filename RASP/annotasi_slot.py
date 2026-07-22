@@ -2,16 +2,8 @@ import cv2
 import json
 import numpy as np
 
-# ======================================
-# KONFIGURASI
-# ======================================
-
 IMAGE_PATH = "parkir.jpg"
 OUTPUT_JSON = "parking_slots.json"
-
-# ======================================
-# LOAD IMAGE
-# ======================================
 
 img_original = cv2.imread(IMAGE_PATH)
 
@@ -21,17 +13,8 @@ if img_original is None:
 
 img = img_original.copy()
 
-# ======================================
-# DATA
-# ======================================
-
 slots = []
 current_polygon = []
-
-# ======================================
-# GENERATE NAMA SLOT
-# A1,A2,A3,...A20,B1,B2,...
-# ======================================
 
 def generate_slot_name(index):
 
@@ -40,17 +23,12 @@ def generate_slot_name(index):
 
     return f"{row}{number}"
 
-# ======================================
-# REDRAW
-# ======================================
-
 def redraw():
 
     global img
 
     img = img_original.copy()
 
-    # Slot yang sudah disimpan
     for idx, slot in enumerate(slots):
 
         pts = np.array(slot["polygon"], np.int32)
@@ -76,7 +54,6 @@ def redraw():
             2
         )
 
-    # Polygon yang sedang dibuat
     if len(current_polygon) > 0:
 
         pts = np.array(current_polygon, np.int32)
@@ -99,10 +76,6 @@ def redraw():
                 -1
             )
 
-# ======================================
-# MOUSE CALLBACK
-# ======================================
-
 def mouse_callback(event, x, y, flags, param):
 
     global current_polygon
@@ -114,10 +87,6 @@ def mouse_callback(event, x, y, flags, param):
         print(f"Titik: ({x},{y})")
 
         redraw()
-
-# ======================================
-# WINDOW
-# ======================================
 
 cv2.namedWindow(
     "Parking Slot Annotation",
@@ -139,10 +108,6 @@ print("S = Simpan JSON")
 print("Q = Keluar")
 print("====================\n")
 
-# ======================================
-# LOOP
-# ======================================
-
 while True:
 
     cv2.imshow(
@@ -152,7 +117,6 @@ while True:
 
     key = cv2.waitKey(10) & 0xFF
 
-    # Simpan slot
     if key == ord('n'):
 
         if len(current_polygon) >= 4:
@@ -180,7 +144,6 @@ while True:
                 "Minimal 4 titik!"
             )
 
-    # Undo titik terakhir
     elif key == ord('u'):
 
         if len(current_polygon) > 0:
@@ -189,7 +152,6 @@ while True:
 
             redraw()
 
-    # Save JSON
     elif key == ord('s'):
 
         with open(
@@ -207,7 +169,6 @@ while True:
             f"Disimpan ke {OUTPUT_JSON}"
         )
 
-    # Keluar
     elif key == ord('q'):
 
         break

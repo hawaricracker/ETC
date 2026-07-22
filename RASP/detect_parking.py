@@ -3,17 +3,9 @@ import cv2
 import json
 import numpy as np
 
-# =====================================================
-# CONFIG
-# =====================================================
-
 IMAGE_PATH = "parkir.jpg"
 JSON_PATH = "parking_slots.json"
 OUTPUT_IMAGE = "hasil_smart_parking.jpg"
-
-# =====================================================
-# LOAD MODEL
-# =====================================================
 
 print("Loading YOLOv11n...")
 
@@ -26,10 +18,6 @@ vehicle_classes = [
     "motorcycle"
 ]
 
-# =====================================================
-# LOAD IMAGE
-# =====================================================
-
 img = cv2.imread(IMAGE_PATH)
 
 if img is None:
@@ -40,23 +28,13 @@ h, w = img.shape[:2]
 
 print(f"Resolusi gambar: {w} x {h}")
 
-# =====================================================
-# LOAD SLOT JSON
-# =====================================================
-
 with open(JSON_PATH, "r") as f:
     parking_data = json.load(f)
 
 print(f"Jumlah slot: {len(parking_data['slots'])}")
 
-# =====================================================
-# YOLO DETECTION
-# =====================================================
-
-# Gunakan resolusi tinggi agar mobil kecil lebih mudah terdeteksi
 imgsz = max(h, w)
 
-# Batasi agar tidak terlalu berat
 if imgsz > 2560:
     imgsz = 2560
 
@@ -72,10 +50,6 @@ results = model.predict(
 
 occupied_slots = set()
 detected_vehicles = 0
-
-# =====================================================
-# DETEKSI KENDARAAN
-# =====================================================
 
 for result in results:
 
@@ -100,13 +74,11 @@ for result in results:
 
         box_area = width * height
 
-        # Filter noise kecil
         if box_area < 1500:
             continue
 
         detected_vehicles += 1
 
-        # Bounding box
         cv2.rectangle(
             img,
             (x1, y1),
@@ -125,7 +97,6 @@ for result in results:
             2
         )
 
-        # Titik bawah kendaraan
         cx = int((x1 + x2) / 2)
         cy = int(y2 - 5)
 
@@ -137,7 +108,6 @@ for result in results:
             -1
         )
 
-        # Cek slot
         for slot in parking_data["slots"]:
 
             polygon = np.array(
@@ -156,10 +126,6 @@ for result in results:
                 occupied_slots.add(
                     slot["id"]
                 )
-
-# =====================================================
-# VISUALISASI SLOT
-# =====================================================
 
 for slot in parking_data["slots"]:
 
@@ -196,10 +162,6 @@ for slot in parking_data["slots"]:
         3
     )
 
-# =====================================================
-# STATISTIK
-# =====================================================
-
 total_slots = len(parking_data["slots"])
 occupied = len(occupied_slots)
 vacant = total_slots - occupied
@@ -215,10 +177,6 @@ print(f"Occupied             : {occupied}")
 print(f"Vacant               : {vacant}")
 print(f"Occupancy Rate       : {occupancy_rate:.2f}%")
 print("===========================\n")
-
-# =====================================================
-# PANEL INFORMASI
-# =====================================================
 
 cv2.rectangle(
     img,
@@ -268,20 +226,12 @@ cv2.putText(
     3
 )
 
-# =====================================================
-# SAVE
-# =====================================================
-
 cv2.imwrite(
     OUTPUT_IMAGE,
     img
 )
 
 print(f"Hasil disimpan ke {OUTPUT_IMAGE}")
-
-# =====================================================
-# DISPLAY
-# =====================================================
 
 cv2.namedWindow(
     "Smart Parking",

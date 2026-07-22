@@ -1,20 +1,3 @@
-"""
-Multi-camera live detection using best.pt model.
-Discovers USB cameras, then spawns one independent process per camera.
-Each process runs its own GUI window — no threading issues.
-
-Usage:
-  python livestream_camera.py            # auto-discover all cameras
-  python livestream_camera.py --cam 0    # run single camera directly
-  python livestream_camera.py --list     # only list available cameras
-
-Controls (per window):
-  q / ESC  — close that camera (all quit via main launcher)
-  s        — save screenshot
-  c        — toggle center-point marker
-  p        — toggle pause
-"""
-
 import cv2
 import os
 import sys
@@ -28,10 +11,6 @@ from ultralytics import YOLO
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# =====================================================
-# CONFIG
-# =====================================================
-
 MODEL_PATH = "best.pt"
 CONF_THRESHOLD = 0.25
 IMGSZ = 640
@@ -44,14 +23,12 @@ COLOR_CENTER = (0, 0, 255)
 COLOR_INFO_BG = (40, 40, 40)
 COLOR_INFO_TEXT = (255, 255, 255)
 
-# Firebase
 FIREBASE_CRED_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                    "..", "dt-rasppi-firebase-adminsdk-fbsvc-2c475bf795.json")
 FIREBASE_COLLECTION = "vehicle-counts"
-UPLOAD_INTERVAL = 1.0  # seconds
+UPLOAD_INTERVAL = 1.0  
 
 os.makedirs(SAVE_DIR, exist_ok=True)
-
 
 def init_firebase():
     """Initialize Firebase. Safe to call multiple times — only inits once."""
@@ -66,11 +43,6 @@ def init_firebase():
         print("[firebase] Initialized.")
     return firestore.client()
 
-
-# =====================================================
-# CAMERA DISCOVERY
-# =====================================================
-
 def discover_cameras(max_cams: int = 8) -> list:
     """Probe camera indices 0..max_cams-1, return list of available ones."""
     available = []
@@ -81,11 +53,6 @@ def discover_cameras(max_cams: int = 8) -> list:
             cap.release()
     return available
 
-
-# =====================================================
-# LOAD MODEL
-# =====================================================
-
 def load_model(path: str) -> YOLO:
     if not os.path.exists(path):
         raise FileNotFoundError(f"Model not found: {path}")
@@ -93,11 +60,6 @@ def load_model(path: str) -> YOLO:
     model = YOLO(path)
     print(f"[cam] Model loaded. Classes: {len(model.names)}")
     return model
-
-
-# =====================================================
-# DRAWING HELPERS
-# =====================================================
 
 def draw_detections(frame, results, show_center: bool = True):
     if results is None or results[0].boxes is None:
@@ -181,20 +143,13 @@ def upload_counts(db, cam_label: str, counts: dict):
     except Exception as e:
         print(f"[{cam_label}] Firebase upload error: {e}")
 
-
-# =====================================================
-# SINGLE-CAMERA LOOP (runs in its own process)
-# =====================================================
-
 def run_single_camera(camera_index: int):
     """Full capture + inference loop for one camera. Called via subprocess."""
     cam_label = f"cam{camera_index}"
     window_name = f"Camera {camera_index} - Live Detection"
 
-    # Load model
     model = load_model(MODEL_PATH)
 
-    # Open camera
     cap = cv2.VideoCapture(camera_index)
     if not cap.isOpened():
         print(f"[{cam_label}] Error: Cannot open camera {camera_index}.")
@@ -213,7 +168,6 @@ def run_single_camera(camera_index: int):
     show_center = True
     last_result = None
 
-    # Firebase
     db = init_firebase()
     category_counts = defaultdict(int)
     last_upload_time = time.time()
@@ -241,11 +195,9 @@ def run_single_camera(camera_index: int):
             last_result = (frame.copy(), results)
             frame, detections = draw_detections(frame, results, show_center)
 
-            # Accumulate per-category counts
             for d in detections:
                 category_counts[d["label"]] += 1
 
-            # Upload to Firebase every UPLOAD_INTERVAL seconds
             now = time.time()
             if now - last_upload_time >= UPLOAD_INTERVAL:
                 if category_counts:
@@ -291,11 +243,6 @@ def run_single_camera(camera_index: int):
     cv2.destroyAllWindows()
     print(f"[{cam_label}] Stopped.")
 
-
-# =====================================================
-# LAUNCHER — discovers cameras, spawns subprocesses
-# =====================================================
-
 def launch_multi_camera(camera_indices: list):
     """Spawn one subprocess per camera index. Each runs its own GUI."""
     script = os.path.abspath(__file__)
@@ -317,7 +264,6 @@ def launch_multi_camera(camera_indices: list):
     print("Close all camera windows to exit, or press Ctrl+C here.\n")
     print("=" * 50)
 
-    # Wait for all subprocesses to finish
     try:
         for idx, p in processes:
             p.wait()
@@ -331,11 +277,6 @@ def launch_multi_camera(camera_indices: list):
 
     print("All cameras stopped.")
 
-
-# =====================================================
-# ENTRY POINT
-# =====================================================
-
 def main():
     parser = argparse.ArgumentParser(description="Multi-camera YOLO live detection")
     parser.add_argument("--cam", type=int, default=None,
@@ -346,12 +287,10 @@ def main():
                         help="Comma-separated camera indices to use (e.g. '0,1,2')")
     args = parser.parse_args()
 
-    # --- Mode: single camera (called by subprocess) ---
     if args.cam is not None:
         run_single_camera(args.cam)
         return
 
-    # --- Mode: list cameras ---
     available = discover_cameras()
     print(f"Cameras found: {available}")
 
@@ -369,7 +308,6 @@ def main():
         print("Error: No cameras detected.")
         return
 
-    # --- Determine active cameras ---
     if args.indices:
         requested = [int(x.strip()) for x in args.indices.split(",")]
         active = [i for i in requested if i in available]
@@ -377,13 +315,10 @@ def main():
             print(f"None of requested indices {requested} are available.")
             return
     else:
-        active = available  # use all discovered
+        active = available 
 
     print(f"Active cameras: {active}")
-
-    # --- Launch subprocesses ---
     launch_multi_camera(active)
-
 
 if __name__ == "__main__":
     main()

@@ -5,7 +5,6 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
-# Default paths
 IMAGE_PATH = "parkir.JPG"
 JSON_PATH = "parking_slots.json"
 OUTPUT_IMAGE = "hasil_smart_parking_yolov11.jpg"
